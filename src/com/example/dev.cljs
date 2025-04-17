@@ -5,6 +5,7 @@
 (def state
   {:counter (flex/source 0)})
 
+#_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
 (defn ^:dev/after-load reload []
   (prn "Reloading...")
   (core/init state))
