@@ -1,11 +1,13 @@
 (ns com.example.panels.shell.view
   (:require [com.example.infra.helix :refer [defnc]]
             [com.example.infra.flex.hook :refer [use-flex]]
+            [com.example.state :refer [state]]
             [helix.dom :as d]))
 
 (defnc app-shell
-  [{:keys [counter]}]
-  (let [counter-flex (use-flex counter)]
+  [_]
+  (let [counter      (:counter state)
+        counter-flex (use-flex counter)]
     (d/div
      {:class "container mx-auto flex flex-col items-center justify-center h-screen"}
      (d/h1

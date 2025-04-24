@@ -3,9 +3,11 @@
             5001 "resources/public/test"}
  :builds {:app {:target          :browser
                 :output-dir      "resources/public/js"
-                :modules         {:app {:init-fn com.example.dev/init}}
+                :modules         {:app {:init-fn com.example.core/init}}
                 :dev             {:build-hooks [(teknql.tailwind/start-watch!)]}
                 :release         {:build-hooks [(teknql.tailwind/compile-release!)]}
+                :devtools        {:preloads [com.example.dev]
+                                  :reload-strategy :full}
                 :tailwind/output "resources/public/css/bundle.css"
                 :tailwind/files  {:base-path "."
                                   :tailwind.css "resources/public/css/index.css"}}

@@ -6,8 +6,8 @@
 (defonce root
   (rdom/createRoot (js/document.getElementById "app")))
 
-(defn render [{:keys [counter]}]
-  (.render root ($ app-shell {:counter counter})))
+(defn render []
+  (.render root ($ app-shell)))
 
-(defn ^:export init [state]
-  (render state))
+(defn ^:export init []
+  (render))

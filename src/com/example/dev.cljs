@@ -1,14 +1,9 @@
 (ns com.example.dev
-  (:require [com.example.core :as core]
-            [town.lilac.flex :as flex]))
+  (:require [helix.experimental.refresh :as r]))
 
-(def state
-  {:counter (flex/source 0)})
+(r/inject-hook!)
 
 #_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
 (defn ^:dev/after-load reload []
   (prn "Reloading...")
-  (core/init state))
-
-(defn ^:export init []
-  (core/init state))
+  (r/refresh!))
